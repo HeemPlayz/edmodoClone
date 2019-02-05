@@ -14,5 +14,5 @@
     $getFromTweetClass = new Tweet($pdo);
     $getFromFollowClass = new User($pdo);
 
-    define("BASE_URL", "http://localhost/edmodoClone");
+    define("BASE_URL", "http://localhost/edmodoClone/");
 ?>

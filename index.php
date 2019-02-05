@@ -1,11 +1,14 @@
 <?php
-    include 'core/init.php';
+	include 'core/init.php';
+	if(isset($_SESSION['user_d'])){
+		header('Location: home.php');
+	}
 ?>
 
 
 <html>
 	<head>
-		<title>twitter</title>
+		<title>Edmodo Clone</title>
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"/>
 		<link rel="stylesheet" href="assets/css/style-complete.css"/>
@@ -49,7 +52,7 @@
 	<div class="main-container">
 		<!-- content left-->
 		<div class="content-left">
-			<h1>Welcome to Tweety.</h1>
+			<h1>Welcome to Edmodo Shitty Clone.</h1>
 			<br/>
 			<p>A place to connect with your friends — and Get updates from the people you love, And get the updates from the world and things that interest you.</p>
 		</div><!-- content left ends -->	
@@ -65,7 +68,7 @@
 			<!-- SignUp Section -->
 			<div class="signup-wrapper">
 			   <!--SignUp Form here -->
-			   <?php include 'includes/signup.php';?>
+			   <?php include 'includes/signup-form.php';?>
 			</div>
 			<!-- SIGN UP wrapper end -->
 

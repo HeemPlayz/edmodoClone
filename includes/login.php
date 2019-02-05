@@ -33,12 +33,14 @@
 		<li>
 		  <input type="checkbox" Value="Remember me">Remember me
 		</li>
+	
+			<?php if(isset($error)){
+				echo '<li class="error-li">
+					<div class="span-fp-error">'.$error.'</div>
+				</li>';
+			}
+		?>
 	</ul>
-	<?php if(isset($error)){
-			echo '<li class="error-li">
-				<div class="span-fp-error">'.$error.'</div>
-			</li>';
-		}
-	 ?>
+
 	</form>
 </div>
