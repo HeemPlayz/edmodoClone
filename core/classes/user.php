@@ -42,7 +42,7 @@
         public function logout(){
             $_SESSION = array();
             session_destroy();
-            header('Location: ../index.php');
+            header('Location: '.BASE_URL.'index.php');
         }
 
         public function checkUsername($username){
@@ -131,6 +131,10 @@
 
             return $user->user_id;
 
+        }
+
+        public function loggedIn(){
+            return (isset($_SESSION['user_id'])) ? true : false;
         }
     }
 ?>

@@ -2,6 +2,9 @@
    include 'core/init.php';
    $user_id=$_SESSION['user_id'];
    $user = $getFromUserClass->userData($user_id); 
+   if($getFromUserClass->loggedIn()===false){
+	   header('Location: index.php');
+   }
 ?>
  
 <!DOCTYPE HTML> 
