@@ -55,7 +55,7 @@
 						<ul>
 							<li><a href="<?php echo BASE_URL.$user->username?>"><?php echo $user->username;?></a></li>
 							<li><a href="<?php echo BASE_URL;?>settings/account">Settings</a></li>
-							<li><a href="<?php echo BASE_UR;?>includes/logout.php">Log out</a></li>
+							<li><a href="<?php echo BASE_URL;?>includes/logout.php">Log out</a></li>
 						</ul>
 					</div>
 				</div>

@@ -1,6 +1,6 @@
 <?php
 	include 'core/init.php';
-	if(isset($_SESSION['user_d'])){
+	if(isset($_SESSION['user_id'])){
 		header('Location: home.php');
 	}
 ?>
