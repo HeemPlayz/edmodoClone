@@ -7,34 +7,11 @@
     if($getFromUserClass->loggedIn()===false){
         header('Location: '.BASE_URL.'index.php');
     }
-
-    if(isset($_POST['submit'])){
-        $username = $getFromUserClass->checkInput($_POST['username']);
-        $email = $getFromUserClass->checkInput($_POST['email']);
-        $error = array(); 
-
-        if(!empty($username) and !empty($email)){
-             if($user->username != $username and $getFromUserClass->checkUsername($username)===true){
-                $error['username']="The username is not available";
-             }else if(preg_match("/[^a-zA-Z0-9\!]",$username)){
-                $error['username']="Only characters and numbers allowed";
-             }else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-                $error['email']="Invalid Email format";
-             }else if($user->email != $email and $getFromUserClass->checkEmail($email)===true){
-                $error['email']="Email already in use!";
-             }else{
-                 $getFromUserClass->update('users',$user_id,array('username'=>$username,'email'=>$email));
-                 header('Location: '.BASE_URL.'settings/account');
-             }
-        }else{
-            $error['fields']="All fields are required";
-        }
-    }
 ?>
 
 <html>
 	<head>
-		<title>Account settings page</title>
+		<title>Password settings page</title>
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"/>
 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -132,80 +109,83 @@
 
 			</div>
 		</div><!--LEFTER ENDS-->
-		
-		<div class="righter">
-			<div class="inner-righter">
-				<div class="acc">
-					<div class="acc-heading">
-						<h2>Account</h2>
-						<h3>Change your basic account settings.</h3>
-					</div>
-					<div class="acc-content">
-					<form method="POST">
-						<div class="acc-wrap">
-							<div class="acc-left">
-								USERNAME
-							</div>
-							<div class="acc-right">
-								<input type="text" name="username" value="<?php echo $user->username; ?>"/>
-								<span>
-                                <?php if(isset($error['username'])){
-                                        echo $error['username'];
-                                    }?>
-								</span>
-							</div>
-						</div>
-
-						<div class="acc-wrap">
-							<div class="acc-left">
-								Email
-							</div>
-							<div class="acc-right">
-								<input type="text" name="email" value="<?php echo $user->email; ?>"/>
-								<span>
-									<?php if(isset($error['email'])){
-                                        echo $error['email'];
-                                    }?>
-								</span>
-							</div>
-						</div>
-						<div class="acc-wrap">
-							<div class="acc-left">
-								
-							</div>
-							<div class="acc-right">
-								<input type="Submit" name="submit" value="Save changes"/>
-							</div>
-							<div class="settings-error">
-                            <?php if(isset($error['fields'])){
-                                        echo $error['fields'];
-                                    }?>
-   							</div>	
-						</div>
-					</form>
-					</div>
+	
+	<div class="righter">
+		<div class="inner-righter">
+			<div class="acc">
+				<div class="acc-heading">
+					<h2>Password</h2>
+					<h3>Change your password or recover your current one.</h3>
 				</div>
-				<div class="content-setting">
-					<div class="content-heading">
+				<form method="POST">
+				<div class="acc-content">
+					<div class="acc-wrap">
+						<div class="acc-left">
+							Current password
+						</div>
+						<div class="acc-right">
+							<input type="password" name="currentPwd"/>
+							<span>
+								<!-- Current Pwd Error -->
+							</span>
+						</div>
+					</div>
+
+					<div class="acc-wrap">
+						<div class="acc-left">
+							New password
+						</div>
+						<div class="acc-right">
+							<input type="password" name="newPassword" />
+							<span>
+								<!-- NewPassword Error -->
+							</span>
+						</div>
+					</div>
+
+					<div class="acc-wrap">
+						<div class="acc-left">
+							Verify password
+						</div>
+						<div class="acc-right">
+							<input type="password" name="rePassword"/>
+							<span>
+								<!-- RePassword Error -->
+							</span>
+						</div>
+					</div>
+					<div class="acc-wrap">
+						<div class="acc-left">
+						</div>
+						<div class="acc-right">
+							<input type="Submit" name="submit" value="Save changes"/>
+						</div>
+						<div class="settings-error">
+							<!-- Fields Error -->
+ 						</div>	
+					</div>
+				 </form>
+				</div>
+			</div>
+			<div class="content-setting">
+				<div class="content-heading">
+					
+				</div>
+				<div class="content-content">
+					<div class="content-left">
 						
 					</div>
-					<div class="content-content">
-						<div class="content-left">
-							
-						</div>
-						<div class="content-right">
-							
-						</div>
+					<div class="content-right">
+						
 					</div>
 				</div>
-			</div>	
-		</div><!--RIGHTER ENDS-->
-
+			</div>
+		</div>	
 	</div>
-	<!--CONTAINER_WRAP ENDS-->
-
-	</div><!-- ends wrapper -->
+	<!--RIGHTER ENDS-->
+</div>
+<!--CONTAINER_WRAP ENDS-->
+</div>
+<!-- ends wrapper -->
 </body>
-
 </html>
-
