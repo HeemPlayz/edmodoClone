@@ -56,6 +56,20 @@
                 return false;
             }
         }
+
+        
+        public function checkPassword($password){
+            $stmt = $this->pdo->prepare("SELECT username FROM users WHERE password=? ");
+            $stmt->execute([md5($password)]);
+
+            $count = $stmt->rowCount();
+            if($count > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
         public function checkEmail($email){
             $stmt = $this->pdo->prepare("SELECT email FROM users WHERE email=? ");
             $stmt->execute([$email]);
@@ -162,6 +176,14 @@
             }else{
                 $GLOBALS['imageError']="The Extension is not allowed";
             }
+        }
+
+        public function search($search){
+            $stmt=$this->pdo->prepare("SELECT user_id,username,screenname,profileImage,profileCover FROM users WHERE username LIKE ? OR screenName LIKE ?");
+            $stmt->bindValue(1, $search.'%', PDO::PARAM_STR);
+            $stmt->bindValue(2, $search.'%', PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
         }
     }
 ?>

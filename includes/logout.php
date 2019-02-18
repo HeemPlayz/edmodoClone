@@ -2,6 +2,6 @@
     include '../core/init.php';
     $getFromUserClass->logout();
     if($getFromUserClass->loggedIn()===false){
-        header('Location: index.php');
+        header('Location: '.BASE_URL.'index.php');
     }
 ?>

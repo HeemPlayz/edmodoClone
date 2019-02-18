@@ -21,6 +21,7 @@
 						$error = "Country name is too long";
 				  }else{
 						$getFromUserClass->update('users',$user_id, array('screenName'=>$screenName,'bio'=>$profileBio, 'country'=>$country,'website'=>$website));
+						
 						header('Location: '.$user->username);
 					}
 				}else{

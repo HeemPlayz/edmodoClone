@@ -36,9 +36,10 @@
 		<div class="nav-left">
 			<ul>
 				<li><a href="<?php echo BASE_URL;?>"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+				<?php if($getFromUserClass->loggedIn()===true){?>
 				<li><a href="<?php echo BASE_URL;?>"><i class="fa fa-bell" aria-hidden="true"></i>Notification</a></li>
 				<li><i class="fa fa-envelope" aria-hidden="true"></i>Messages</li>
-				 
+				 <?php }?>
 			</ul>
 		</div><!-- nav left ends-->
 		<div class="nav-right">
@@ -47,7 +48,7 @@
 					<div class="search-result"> 			
 					</div>
 				</li>
-
+				<?php if($getFromUserClass->loggedIn()===true){?>	
 				<li class="hover"><label class="drop-label" for="drop-wrap1"><img src="<?php echo BASE_URL.$user->profileImage;?>"/></label>
 				<input type="checkbox" id="drop-wrap1">
 				<div class="drop-wrap">
@@ -61,6 +62,9 @@
 				</div>
 				</li>
 				<li><label for="pop-up-tweet" class="addTweetBtn">POSTS</label></li>
+				<?php }else{
+					echo '<li><a href="'.BASE_URL.'index.php">Have an account? Log in!</a></li>';
+				}?>
 			</ul>
 		</div><!-- nav right ends-->
 
