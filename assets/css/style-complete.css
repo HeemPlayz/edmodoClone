@@ -819,17 +819,17 @@ box-shadow: inset 0px -4px 0px #6cc854;}
  
 
 .t-s-f-right ul li button.unlike-btn,.t-s-f-right ul li button.unlike-btn i,.t-s-f-right ul li button.unlike-btn span, .tweet-show-popup-footer-menu ul li button.unlike-btn{
-	color: red;
+	color: rgb(0, 132, 255);
 }
 .t-s-f-right ul li button.retweet > .fa-share , .t-s-f-right ul li button.retweeted> .fa-retweet, .tweet-show-popup-footer-menu ul li button.retweeted, .img-popup-tweet-menu-inner > ul > li > button.retweeted{
 	color:skyblue;
 }
-.t-s-f-right ul li a:hover> .fa-heart-o{
-	color:red;
+.t-s-f-right ul li a:hover> .fa-thumbs-o-up{
+	color:rgb(0, 132, 255);;
 }
 
-.t-s-f-right ul li button:hover> .fa-heart-o{
-	color:red;
+.t-s-f-right ul li button:hover> .fa-thumbs-o-up{
+	color:rgb(0, 132, 255);;
 }
 .t-s-f-right ul li button:hover> .fa-retweet{
 	color:skyblue;
@@ -2459,8 +2459,8 @@ button.btn.unfollow{
 .tweet-show-popup-footer-menu .fa-retweet:hover{
 	color: #2682e9;
 }
-.tweet-show-popup-footer-menu .fa-heart-o:hover{
-	color:red;
+.tweet-show-popup-footer-menu .fa-thumbs-o-up:hover{
+	color:rgb(0, 132, 255);
 }
 
 .tweet-show-popup-footer-menu ul li:hover{
@@ -2855,7 +2855,7 @@ border-bottom: 1px solid #e9e9e9;
 
 }
 
-.hash-img-flex-footer ul li button:hover >.fa-heart{
+.hash-img-flex-footer ul li button:hover >.fa-thumbs-up{
 	color:#cf3131;
 }
 .hash-img-flex-footer ul li button:hover >.fa-retweet{
@@ -3228,7 +3228,7 @@ border-bottom: 1px solid #e9e9e9;
 	color: skyblue;
  }
  .img-popup-tweet-menu-inner > ul > li > button.unlike-btn > i {
-	color: red;
+	color: rgb(0, 132, 255);
  }
 .img-popup-tweet-menu-inner ul li button span{
 	font-size: 12px;
@@ -3239,17 +3239,17 @@ border-bottom: 1px solid #e9e9e9;
 	color: #9C9A9A;
 	font-weight: bold;
 }
-.img-popup-tweet-menu-inner ul li:hover > button > i.fa-heart-o{
-	color: red;
+.img-popup-tweet-menu-inner ul li:hover > button > i.fa-thumbs-o-up{
+	color: rgb(0, 132, 255);
 }
-.img-popup-tweet-menu-inner ul li:active > button > i.fa-heart{
-	color: red;
+.img-popup-tweet-menu-inner ul li:active > button > i.fa-thumbs-up{
+	color: rgb(0, 132, 255);
 }
 .img-popup-tweet-menu-inner ul li:active > button > i > .heart-span{
-	color: red;
+	color: rgb(0, 132, 255);
 }
 .img-popup-tweet-menu-inner ul li:hover > button > i > .heart-span{
-	color: red;
+	color: rgb(0, 132, 255);
 }
 .img-popup-tweet-menu-inner ul li:hover > button.retweet > i.fa-retweet{
 	color: skyblue;

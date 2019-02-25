@@ -80,7 +80,8 @@
         <?php if($_GET['step']=='2'){?>
     <div class='lets-wrapper'>
             <div class='step-letsgo'>
-                <h2>We're glad you're here, <?php echo $user->screenName ?></h2>
+            <!-- <?php echo $user->screenName ?> -->
+                <h2>We're glad you're here, screenanme</h2>
                 <p>Tweety is a constantly updating stream of the coolest, most important news, media, sports, TV, conversations and more--all tailored just for you.</p>
                 <br/>
                 <p>

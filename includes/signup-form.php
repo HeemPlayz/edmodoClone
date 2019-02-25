@@ -27,9 +27,10 @@ try{
 				}else {
 						//$getFromUserClass->register($email,$screenName,$password);
 						try{
-							// $getFromUserClass->create('users',array('email'=>$email,'password'=>md5($password),'screenName'=>$screeName,'profileImage'=>$profileImage,'profileCover'=>$profileCover));
-							$user_id=$getFromUserClass->create('users',array('username'=>$screenName,'email'=>$email,'password'=>md5($password),'screenName'=>$screenName,'profileImage'=>$profileImage,'profileCover'=>$profileCover));
+							//$getFromUserClass->create('users',array('email'=>$email,'password'=>md5($password),'screenName'=>$screeName,'profileImage'=>$profileImage,'profileCover'=>$profileCover));
+							$user_id=$getFromUserClass->create('users',array('email'=>$email,'password'=>md5($password),'screenName'=>$screenName,'profileImage'=>$profileImage,'profileCover'=>$profileCover));
 							$_SESSION['user_id']=$user_id;
+							var_dump($user_id);
 						header('Location: includes/signup.php?step=1'); 
 
 					

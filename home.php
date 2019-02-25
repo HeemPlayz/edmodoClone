@@ -6,6 +6,7 @@
 	   header('Location: index.php');
    }
 
+   $getFromUserClass->delete('comments', array('commentID'=>'1'));
 if(isset($_POST['tweet'])){
 	$status = $getFromUserClass->checkInput($_POST['status']);
 	$tweetImage = '';
@@ -18,6 +19,11 @@ if(isset($_POST['tweet'])){
 			$error = 'The text of your tweet is too long';
 		}
 		$getFromUserClass->create('tweet',array('status'=>$status,'tweetBy'=>$user_id,'tweetImage'=>$tweetImage,'postedOn'=>date('Y-m-d H:i:s')));
+		preg_match_all("/#+([a-zA-Z0-9_]+)/i",$status, $hashtag);
+
+		if(!empty($hashtag)){
+			$getFromTweetClass->addTrend($status);
+		}
 	}else{
 		$error = 'Type or choose image to tweet';
 	}
@@ -84,6 +90,7 @@ if(isset($_POST['tweet'])){
 </div><!-- header wrapper end -->
 
 <script type="text/javascript" src="assets/js/search.js"></script>
+<script type="text/javascript" src="assets/js/hashtag.js"></script>
 
 // <!---Inner wrapper-->
 <div class="inner-wrapper">
@@ -118,7 +125,7 @@ if(isset($_POST['tweet'])){
 								POSTS
 							</div>
 							<div class="num-body">
-								10
+								<?php $getFromTweetClass->countTweets($user_id);?>
 							</div>
 						</div>
 						<div class="num-box">
@@ -192,7 +199,7 @@ if(isset($_POST['tweet'])){
 			
 				<!--Tweet SHOW WRAPPER-->
 				 <div class="tweets">
- 				  	<?php $getFromTweetClass->tweets();?>
+ 				  	<?php $getFromTweetClass->tweets($user_id,10);?>
  				 </div>
  				<!--TWEETS SHOW WRAPPER-->
 
@@ -201,8 +208,14 @@ if(isset($_POST['tweet'])){
 		    	</div>
 				<div class="popupTweet"></div>
 				<!--Tweet END WRAPER-->
- 			
-			</div><!-- in left wrap-->
+ 			<script type="text/javascript" src="assets/js/like.js"></script>
+			 <script type="text/javascript" src="assets/js/retweet.js"></script>
+			 <script type="text/javascript" src="assets/js/popuptweet.js"></script>
+			 <script type="text/javascript" src="assets/js/delete.js"></script>
+			 <script type="text/javascript" src="assets/js/comment.js"></script>
+			 <script type="text/javascript" src="assets/js/popupForm.js"></script>
+			 <script type="text/javascript" src="assets/js/fetch.js"></script>
+		</div><!-- in left wrap-->
 		</div><!-- in center end -->
 
 		<div class="in-right">
